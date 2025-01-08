@@ -21,4 +21,10 @@ export const MenuList = [
       }
     ],
   },
+  {
+    name: "Assesments",
+    type: "item",
+    path: "/assesments",
+    icon: icons.main,
+  },
 ];

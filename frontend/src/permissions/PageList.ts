@@ -18,5 +18,10 @@ export const pageList = [
     viewName: "UserList",
     path: "/userList",
   },
-  
+  {
+    name: "Assesments",
+    moduleName: "questions",
+    viewName: "QuestionsList",
+    path: "/assesments",
+  },
 ];
