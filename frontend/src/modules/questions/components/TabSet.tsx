@@ -69,8 +69,21 @@ export const TabSet = () => {
     activities: { 1: "", 2: "", 3: "" },
   });
 
+  const handleSubmit = () => {
+    const formaData = {
+      demographic: demographic,
+      social: social,
+      medical: medical,
+      behaviorals: behaviorals,
+      cognition: cognition,
+      functional,
+    };
+    console.log(formaData, "formaData");
+  };
+
   const saveDemographic = (data: any) => {
     console.log(data, "saveDemographic");
+    setActive((prev) => prev + 1);
   };
 
   const saveSocial = (data: any) => {
@@ -84,23 +97,30 @@ export const TabSet = () => {
     if (data?.alcoholic !== "No") {
       console.log("early exit");
     }
+    setActive((prev) => prev + 1);
   };
 
   const saveMedical = (data: any) => {
     console.log(data, "saveMedical");
+    setActive((prev) => prev + 1);
   };
 
   const saveBehavioral = (data: any) => {
     console.log(data, "saveBehavioral");
+    setActive((prev) => prev + 1);
   };
 
   const saveCognitions = (data: any) => {
-    console.log(data, "saveCognitions");
+    console.log(data, "saveCognitions summary page");
+    handleSubmit();
   };
 
   const saveFunctional = (data: any) => {
     console.log(data, "saveFunctional");
+    setActive((prev) => prev + 1);
   };
+
+  console.log(active, "active");
 
   const TAB_DATA = [
     {
