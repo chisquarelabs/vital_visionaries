@@ -1,21 +1,20 @@
 import { useEffect, useState } from "react";
+import { Button } from "@mui/material";
 
 type InputBoxProps = {
-  type: string;
+  type?: string;
   placeholder?: string;
   name: string;
   value?: string;
   onChange?: (name: string, value: string | File) => void;
-  disabled?: boolean;
 };
 
 export const InputBox: React.FC<InputBoxProps> = ({
-  type,
+  type = "text",
   placeholder,
   name,
   value,
   onChange = () => {},
-  disabled,
 }) => {
   return (
     <input
@@ -26,10 +25,7 @@ export const InputBox: React.FC<InputBoxProps> = ({
       onChange={(e) => {
         onChange(name, e.target.value);
       }}
-      disabled={disabled}
-      className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent ${
-        type !== "file" ? "py-3 px-5" : "p-0"
-      }  font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary`}
+      className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary`}
     />
   );
 };
@@ -133,12 +129,27 @@ export const SwitchBox: React.FC<SwitchBoxProps> = ({
   );
 };
 
-export const DatePicker = ({ label }: { label: string }) => {
+export const DatePicker = ({
+  label,
+  onChange,
+  value,
+  name,
+}: {
+  label: string;
+  onChange: any;
+  value: any;
+  name: string;
+}) => {
   return (
     <div>
-      <label className="mb-3 block text-black dark:text-white">{label}</label>
       <div className="relative">
         <input
+          name={name}
+          value={value || ""}
+          onChange={(e) => {
+            onChange(name, e.target.value);
+          }}
+          placeholder={label}
           type="date"
           className="custom-input-date custom-input-date-2 w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
         />
@@ -228,7 +239,7 @@ export const SelectBox: React.FC<SelectBoxProps> = ({
 }) => {
   return (
     <select
-      className="w-full appearance-none rounded border border-stroke bg-transparent outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input"
+      className="h-full w-full appearance-none rounded border border-stroke bg-transparent outline-none transition focus:border-primary active:border-primary dark:border-form-strokedark dark:bg-form-input"
       value={value || ""}
       name={name}
       onChange={(e) => {
@@ -323,19 +334,18 @@ export const MultiSelectBox = ({ label }: { label: string }) => {
   );
 };
 
-export const Button = ({ label, icon, onClick, className }: any) => {
+export const ButtonForm = ({ label, onClick }: any) => {
   return (
-    <button
-      className={
-        `inline-flex items-center justify-center gap-2.5 rounded-md border
-         border-primary py-1 px-4 text-center font-medium text-primary hover:bg-opacity-90 lg:px-4 xl:px-4 ` +
-        className
-      }
+    <Button
+      sx={{ color: "#fff", background: "#172166",textTransform:"none" }}
+      variant="text"
       onClick={onClick}
+      fullWidth
+      size="large"
     >
-      <span>{icon}</span>
+      {" "}
       {label}
-    </button>
+    </Button>
   );
 };
 
