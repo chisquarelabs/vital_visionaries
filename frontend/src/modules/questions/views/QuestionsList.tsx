@@ -3,7 +3,9 @@ import { TabSet } from "../components/TabSet";
 const QuestionsList = () => {
   return (
     <>
-      <TabSet />
+      <div className="mt-2">
+        <TabSet />
+      </div>
     </>
   );
 };
