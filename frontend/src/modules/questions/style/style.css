@@ -141,6 +141,7 @@ body {
   top: 0;
   width: 100%;
   background-color: rgb(24, 26, 30);
+  min-height: 300px; /* Adjust the value as needed */
 }
 
 .tabs menu + div > .active {

@@ -38,6 +38,7 @@ export const TabSet = () => {
   const [active, setActive] = useState(0);
 
   const clickHandler = (e: any) => {
+    e.preventDefault(); // Prevent scrolling
     setActive(parseInt(e.currentTarget.attributes.tabIndex.value));
   };
 
