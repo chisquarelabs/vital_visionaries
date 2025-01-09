@@ -16,36 +16,36 @@ export const Cognitive = ({ onSave = () => {}, init }: any) => {
 
   const questions = [
     {
-      name: "1",
+      name: "memory_problems",
       question: "Do you have any memory problems?",
     },
     {
-      name: "2",
+      name: "short_term_memory",
       question: "Do you experience short term memory problems?",
       highlight: true,
     },
     {
-      name: "3",
+      name: "long_term_memory",
       question:
         "Have you ever experienced any long term memory problems, such as difficulty to remember past events?",
     },
     {
-      name: "4",
+      name: "memory_progression",
       question: "Is there a gradual progression in your memory problems?",
     },
     {
-      name: "5",
+      name: "memory_aids",
       question: "Do you frequently use calendars / diaries as memory aids?",
     },
-    { name: "6", question: "Do you find difficulty in focusing on anything?" },
-    { name: "7", question: "Have you experienced any speech difficulties?" },
+    { name: "focusing_difficulty", question: "Do you find difficulty in focusing on anything?" },
+    { name: "speech_difficulty", question: "Have you experienced any speech difficulties?" },
     {
-      name: "8",
+      name: "expressing_difficulty",
       question: "Do you find  any difficulty in expressing yourself?",
     },
-    { name: "9", question: "Do you experience any word finding problems?" },
+    { name: "word_finding", question: "Do you experience any word finding problems?" },
     {
-      name: "10",
+      name: "repeating",
       question:
         "Do you find yourself repeating the same thing in conversations?",
     },
@@ -101,7 +101,6 @@ export const Cognitive = ({ onSave = () => {}, init }: any) => {
             );
           })}
 
-          <Grid size={{ xs: 12, md: 4, lg: 4 }}></Grid>
           <Grid size={{ xs: 12, md: 4, lg: 4 }}>
             <ButtonForm
               className="mr-1"

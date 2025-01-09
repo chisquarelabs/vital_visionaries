@@ -55,7 +55,7 @@ export const Social = ({ onSave = () => {}, init }: any) => {
                 name="qualification"
                 onChange={handleChange}
                 value={formData["qualification"]}
-                label="Qualification"
+                label="qualification"
                 options={Qualification}
               />
             </div>

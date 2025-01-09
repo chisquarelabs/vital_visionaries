@@ -1,14 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { Demographic } from "./Demographic";
-import "../style/style.css";
 import { Social } from "./Social";
 import { Medical } from "./Medical";
 import { Behavioral } from "./Behavioral";
 import { Cognitive } from "./Cognitive";
 import { Functional } from "./Functional";
+import "../style/style.css";
 
 export const TabSet = () => {
   const [active, setActive] = useState(0);
+  const navigate = useNavigate();
+
   const [demographic, setDemographic] = useState({
     name: "",
     patient_id: "",
@@ -19,108 +23,110 @@ export const TabSet = () => {
   const [social, setSocial] = useState({
     qualification: "",
     occupation: "",
-    disibilities: "",
+    disabilities: "",
     smoker: "",
     alcoholic: "",
   });
   const [medical, setMedical] = useState({
-    cardiac_problems: "",
-    head_injuries: "",
-    renals_conditions: "",
-    liver_conditions: "",
-    thyroid: "",
     hospitalization: "",
     diabetic: "",
     cancer: "",
+    thyroid: "",
     stroke: "",
+    cardiac: "",
+    head_injuries: "",
     epilepsy: "",
+    renals: "",
+    liver: "",
   });
 
   const [behaviorals, setBehaviorals] = useState({
-    1: "",
-    2: "",
-    3: "",
-    4: "",
-    5: "",
-    6: "",
-    7: "",
-    8: "",
-    9: "",
-    10: "",
+    suicide_attempt: "",
+    suicidal_tendencies: "",
+    wandering: "",
+    scammed: "",
+    sleep_pattern: "",
+    drag_feet: "",
+    sleep_disturbed: "",
+    depression: "",
+    anxious: "",
+    irritated: "",
   });
 
   const [cognition, setCognition] = useState({
-    1: "",
-    2: "",
-    3: "",
-    4: "",
-    5: "",
-    6: "",
-    7: "",
-    8: "",
-    9: "",
-    10: "",
+    memory_problems: "",
+    short_term_memory: "",
+    long_term_memory: "",
+    memory_progression: "",
+    memory_aids: "",
+    focusing_difficulty: "",
+    speech_difficulty: "",
+    expressing_difficulty: "",
+    word_finding: "",
+    repeating: "",
   });
 
   const [functional, setFunctional] = useState({
-    personal: { 1: "", 2: "", 3: "" },
-    social: { 1: "", 2: "", 3: "" },
-    hobbies: { 1: "", 2: "" },
-    activities: { 1: "", 2: "", 3: "" },
+    personal: { cloth_assistance: "", social_activities: "", converse: "" },
+    social: { support_system: "", two_meals: "", neat_bedroom: "" },
+    hobbies: { hobbies: "", hobby_engagement: "" },
+    activities: { public_transport: "", shopping_alone: "", sports: "" },
   });
 
+  const initializeData = () => {};
+
+  //   api call
   const handleSubmit = () => {
-    let score = 0
+    let score = 0;
 
     function updateScore(response: any) {
-      if (response === 'Yes') return 1;
-      if (response === 'No') return -1;
+      if (response === "Yes") return 1;
+      if (response === "No") return -1;
       return 0;
     }
 
     function updateScoreInverted(response: any) {
-      if (response === 'Yes') return -1;
-      if (response === 'No') return 1;
+      if (response === "Yes") return -1;
+      if (response === "No") return 1;
       return 0;
     }
-    
-    score += updateScore(functional.personal[1]);
-    score += updateScore(functional.personal[2]);
-    score += updateScore(functional.personal[3]);
-    
-    score += updateScore(functional.social[1]);
-    score += updateScore(functional.social[2]);
-    score += updateScore(functional.social[3]);
-    
-    score += updateScore(functional.hobbies[1]);
-    score += updateScore(functional.hobbies[2]);
-    
-    score += updateScore(functional.activities[1]);
-    score += updateScore(functional.activities[2]);
-    score += updateScore(functional.activities[3]);
 
-    score += updateScoreInverted(behaviorals[1]);
-    score += updateScoreInverted(behaviorals[2]);
-    score += updateScoreInverted(behaviorals[3]);
-    score += updateScoreInverted(behaviorals[4]);
-    score += updateScoreInverted(behaviorals[5]);
-    score += updateScoreInverted(behaviorals[6]);
-    score += updateScoreInverted(behaviorals[7]);
-    score += updateScoreInverted(behaviorals[8]);
-    score += updateScoreInverted(behaviorals[9]);
-    score += updateScoreInverted(behaviorals[10]);
- 
-    score += updateScoreInverted(cognition[1]);
-    score += updateScoreInverted(cognition[2]);
-    score += updateScoreInverted(cognition[3]);
-    score += updateScoreInverted(cognition[4]);
-    score += updateScoreInverted(cognition[5]);
-    score += updateScoreInverted(cognition[6]);
-    score += updateScoreInverted(cognition[7]);
-    score += updateScoreInverted(cognition[8]);
-    score += updateScoreInverted(cognition[9]);
-    score += updateScoreInverted(cognition[10]);
-    
+    score += updateScore(functional.personal["cloth_assistance"]);
+    score += updateScore(functional.personal["social_activities"]);
+    score += updateScore(functional.personal["converse"]);
+
+    score += updateScore(functional.social["support_system"]);
+    score += updateScore(functional.social["two_meals"]);
+    score += updateScore(functional.social["neat_bedroom"]);
+
+    score += updateScore(functional.hobbies["hobbies"]);
+    score += updateScore(functional.hobbies["hobby_engagement"]);
+
+    score += updateScore(functional.activities["public_transport"]);
+    score += updateScore(functional.activities["shopping_alone"]);
+    score += updateScore(functional.activities["sports"]);
+
+    score += updateScoreInverted(behaviorals.suicide_attempt);
+    score += updateScoreInverted(behaviorals.suicidal_tendencies);
+    score += updateScoreInverted(behaviorals.wandering);
+    score += updateScoreInverted(behaviorals.scammed);
+    score += updateScoreInverted(behaviorals.sleep_pattern);
+    score += updateScoreInverted(behaviorals.drag_feet);
+    score += updateScoreInverted(behaviorals.sleep_disturbed);
+    score += updateScoreInverted(behaviorals.depression);
+    score += updateScoreInverted(behaviorals.anxious);
+    score += updateScoreInverted(behaviorals.irritated);
+
+    score += updateScoreInverted(cognition.memory_problems);
+    score += updateScoreInverted(cognition.short_term_memory);
+    score += updateScoreInverted(cognition.long_term_memory);
+    score += updateScoreInverted(cognition.memory_progression);
+    score += updateScoreInverted(cognition.memory_aids);
+    score += updateScoreInverted(cognition.focusing_difficulty);
+    score += updateScoreInverted(cognition.speech_difficulty);
+    score += updateScoreInverted(cognition.expressing_difficulty);
+    score += updateScoreInverted(cognition.word_finding);
+    score += updateScoreInverted(cognition.repeating);
 
     const formaData = {
       demographic: demographic,
@@ -129,58 +135,54 @@ export const TabSet = () => {
       behaviorals: behaviorals,
       cognition: cognition,
       functional,
-      score
+      score,
     };
-    console.log("score", score)
+    console.log("score", score);
     console.log(formaData, "formaData");
   };
 
   const saveDemographic = (data: any) => {
-    setDemographic(data)
+    setDemographic(data);
     console.log(data, "saveDemographic");
     setActive((prev) => prev + 1);
   };
 
   const saveSocial = (data: any) => {
-    setSocial(data)
-    console.log(data, "saveSocial");
-    if (data?.disibilities !== "No") {
-      console.log("early exit");
+    setSocial(data);
+    if (
+      data?.disibilities !== "No" ||
+      data?.smoker !== "No" ||
+      data?.alcoholic !== "No"
+    ) {
+      initializeData();
+      setActive(0);
+      navigate("/done");
     }
-    if (data?.smoker !== "No") {
-      console.log("early exit");
-    }
-    if (data?.alcoholic !== "No") {
-      console.log("early exit");
-    }
-    setActive((prev) => prev + 1);
   };
 
   const saveMedical = (data: any) => {
-    setMedical(data)
+    setMedical(data);
     console.log(data, "saveMedical");
     setActive((prev) => prev + 1);
   };
 
   const saveBehavioral = (data: any) => {
-    setBehaviorals(data)
+    setBehaviorals(data);
     console.log(data, "saveBehavioral");
     setActive((prev) => prev + 1);
   };
 
   const saveCognitions = (data: any) => {
-    setCognition(data)
+    setCognition(data);
     console.log(data, "saveCognitions summary page");
     handleSubmit();
   };
 
   const saveFunctional = (data: any) => {
-    setFunctional(data)
+    setFunctional(data);
     console.log(data, "saveFunctional");
     setActive((prev) => prev + 1);
   };
-
-  console.log(active, "active");
 
   const TAB_DATA = [
     {

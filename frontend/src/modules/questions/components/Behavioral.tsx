@@ -16,27 +16,27 @@ export const Behavioral = ({ onSave = () => {}, init }: any) => {
 
   const questions = [
     {
-      name: "1",
+      name: "suicide_attempt",
       question: "Have you ever tried committing suicide?",
       highlight: true,
     },
     {
-      name: "2",
+      name: "suicidal_tendencies",
       question: "Do you feel like killing yourself?",
       highlight: true,
     },
     {
-      name: "3",
+      name: "wandering",
       question: "Do you run away from your home quiet often?",
       highlight: true,
     },
-    { name: "4", question: "Have you been scammed anytime?" },
-    { name: "5", question: "Is your sleep pattern alright?" },
-    { name: "6", question: "Do you drag your feet when walking?" },
-    { name: "7", question: "Is your sleep disturbed?" },
-    { name: "8", question: "Are you in depression?" },
-    { name: "9", question: "Do you feel anxious always?" },
-    { name: "10", question: "Do you easily get irritated?" },
+    { name: "scammed", question: "Have you been scammed anytime?" },
+    { name: "sleep_pattern", question: "Is your sleep pattern alright?" },
+    { name: "drag_feet", question: "Do you drag your feet when walking?" },
+    { name: "sleep_disturbed", question: "Is your sleep disturbed?" },
+    { name: "depression", question: "Are you in depression?" },
+    { name: "anxious", question: "Do you feel anxious always?" },
+    { name: "irritated", question: "Do you easily get irritated?" },
   ];
 
   return (
@@ -89,7 +89,6 @@ export const Behavioral = ({ onSave = () => {}, init }: any) => {
             );
           })}
 
-          <Grid size={{ xs: 12, md: 4, lg: 4 }}></Grid>
           <Grid size={{ xs: 12, md: 4, lg: 4 }}>
             <ButtonForm
               className="mr-1"

@@ -80,9 +80,9 @@ export const Medical = ({ onSave = () => {}, init }: any) => {
               }}
             >
               <SelectBox
-                name="liver_conditions"
+                name="liver"
                 onChange={handleChange}
-                value={formData["liver_conditions"]}
+                value={formData["liver"]}
                 label="Liver Conditions"
                 options={Liver}
               />
@@ -98,9 +98,9 @@ export const Medical = ({ onSave = () => {}, init }: any) => {
               }}
             >
               <SelectBox
-                name="cardiac_problems"
+                name="cardiac"
                 onChange={handleChange}
-                value={formData["cardiac_problems"]}
+                value={formData["cardiac"]}
                 label="Cardiac Problems"
                 options={Cardiac}
               />
@@ -134,9 +134,9 @@ export const Medical = ({ onSave = () => {}, init }: any) => {
               }}
             >
               <SelectBox
-                name="renals_conditions"
+                name="renals"
                 onChange={handleChange}
-                value={formData["renals_conditions"]}
+                value={formData["renals"]}
                 label="Renal Conditions"
                 options={renalConditions}
               />
@@ -309,10 +309,10 @@ export const Medical = ({ onSave = () => {}, init }: any) => {
                   <input
                     id="Yes"
                     type="radio"
-                    value={formData["epilepsy"]}
-                    name="epilepsy"
-                    checked={formData["epilepsy"] === "Yes"}
-                    onChange={(e: any) => handleChange("epilepsy", e.target.id)}
+                    value={formData["seizure"]}
+                    name="seizure"
+                    checked={formData["seizure"] === "Yes"}
+                    onChange={(e: any) => handleChange("seizure", e.target.id)}
                     className="w-4 h-4 text-blue-600 bg-gray-300 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
@@ -323,10 +323,10 @@ export const Medical = ({ onSave = () => {}, init }: any) => {
                   <input
                     id="No"
                     type="radio"
-                    value={formData["epilepsy"]}
-                    name="epilepsy"
-                    checked={formData["epilepsy"] === "No"}
-                    onChange={(e: any) => handleChange("epilepsy", e.target.id)}
+                    value={formData["seizure"]}
+                    name="seizure"
+                    checked={formData["seizure"] === "No"}
+                    onChange={(e: any) => handleChange("seizure", e.target.id)}
                     className="w-4 h-4 text-blue-600 bg-gray-300 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
