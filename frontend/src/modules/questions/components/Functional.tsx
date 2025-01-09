@@ -60,7 +60,7 @@ export const Functional = ({ onSave = () => {}, init }: any) => {
         const { category, questions: questionItems } = questionGroup;
         return (
           <Grid key={groupIndex} size={{ xs: 12, md: 8, lg: 8 }}>
-            <h5 className="text-start font-semibold mb-2">* {category}</h5>
+            <h5 className="text-start font-semibold mb-2">{category.toUpperCase()}</h5>
             {questionItems.map((question, questionIndex) => (
               <Grid key={questionIndex} container spacing={2}>
                 <Grid key={groupIndex} size={{ xs: 12, md: 12, lg: 12 }}>
@@ -81,7 +81,7 @@ export const Functional = ({ onSave = () => {}, init }: any) => {
                           onChange={(e: any) =>
                             handleChange(category, questionIndex + 1, "Yes")
                           }
-                          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                          className="w-4 h-4 text-blue-600 bg-gray-300 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                         />
                         <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                           Yes
@@ -99,7 +99,7 @@ export const Functional = ({ onSave = () => {}, init }: any) => {
                           onChange={(e) =>
                             handleChange(category, questionIndex + 1, "No")
                           }
-                          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                          className="w-4 h-4 text-blue-600 bg-gray-300 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                         />
                         <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                           No

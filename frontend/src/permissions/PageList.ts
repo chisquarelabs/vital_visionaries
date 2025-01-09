@@ -24,4 +24,28 @@ export const pageList = [
     viewName: "QuestionsList",
     path: "/assesments",
   },
+  {
+    name: "Summary",
+    moduleName: "summary",
+    viewName: "summaryPage",
+    path: "/summary",
+  },
+  {
+    name: "Summary Card",
+    moduleName: "summaryCard",
+    viewName: "summaryCardPage",
+    path: "/summaryCard",
+  },
+  {
+    name: "Appointments",
+    moduleName: "appointments",
+    viewName: "followupAppointments",
+    path: "/appointments",
+  },
+  {
+    name: "Thank You",
+    moduleName: "endPage",
+    viewName: "EndPage",
+    path: "/done",
+  },
 ];

@@ -26,7 +26,7 @@ export const Social = ({ onSave = () => {}, init }: any) => {
 
   const Occupation = [
     { label: "Employed", value: "Employed" },
-    { label: "Un EMployed", value: "Unemployed" },
+    { label: "Unemployed", value: "Unemployed" },
     { label: "Retired", value: "Retired" },
     { label: "Others", value: "Others" },
   ];
@@ -108,7 +108,7 @@ export const Social = ({ onSave = () => {}, init }: any) => {
                     name="smoker"
                     checked={formData["smoker"] === "Yes"}
                     onChange={(e: any) => handleChange("smoker", e.target.id)}
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    className="w-4 h-4 text-blue-600 bg-gray-300 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                     Yes
@@ -122,7 +122,7 @@ export const Social = ({ onSave = () => {}, init }: any) => {
                     name="smoker"
                     checked={formData["smoker"] === "No"}
                     onChange={(e: any) => handleChange("smoker", e.target.id)}
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    className="w-4 h-4 text-blue-600 bg-gray-300 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                     No
@@ -147,7 +147,7 @@ export const Social = ({ onSave = () => {}, init }: any) => {
                     onChange={(e: any) =>
                       handleChange("alcoholic", e.target.id)
                     }
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    className="w-4 h-4 text-blue-600 bg-gray-300 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                     Yes
@@ -163,7 +163,7 @@ export const Social = ({ onSave = () => {}, init }: any) => {
                     onChange={(e: any) =>
                       handleChange("alcoholic", e.target.id)
                     }
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    className="w-4 h-4 text-blue-600 bg-gray-300 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                     No
@@ -179,6 +179,34 @@ export const Social = ({ onSave = () => {}, init }: any) => {
               label="Next"
               onClick={() => onSave(formData)}
             />
+            {/* <div className="flex justify-center w-full">
+            <div className="mt-8 mr-1" onClick={() => onSave(formData)}>
+              <a
+                href="#_"
+                className="relative inline-flex items-center px-12 py-3 overflow-hidden text-lg font-medium text-[#0a1d40] border-2 border-[#0a1d40] rounded-full hover:text-white group hover:bg-gray-50"
+              >
+                <span className="absolute left-0 block w-full h-0 transition-all bg-[#0a1d40] opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    ></path>
+                  </svg>
+                </span>
+                <span className="relative">Next Question</span>
+              </a>
+            </div>
+            </div> */}
+
           </Grid>
         </Grid>
       </Grid>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
-import Logo from "../../assets/react.svg";
+import Logo from "../../assets/logo.jpg";
 import SidebarLinkGroup from "./SidebarLinkGroup";
 import { MenuList } from "../../permissions/MenuList";
 
@@ -60,8 +60,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
           <NavLink
             to={item?.path}
             className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium
-               text-bodydark1 duration-300 ease-in-out hover:bg-secondary dark:hover:bg-meta-4 ${
-                 pathname.includes(item.path) && "bg-secondary dark:bg-meta-4"
+               text-white duration-300 ease-in-out hover:bg-[#d68f4d] dark:hover:bg-meta-4 ${
+                 pathname.includes(item.path) && "bg-[#d89c65] dark:bg-meta-4"
                }`}
           >
             <div dangerouslySetInnerHTML={{ __html: item.icon }} />
@@ -83,9 +83,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
                 <NavLink
                   to="#"
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300
-                   ease-in-out hover:bg-secondary dark:hover:bg-meta-4 ${
+                   ease-in-out hover:bg-[#d68f4d] dark:hover:bg-meta-4 ${
                      (pathname === item.path || pathname.includes(item.path)) &&
-                     "bg-secondary dark:bg-meta-4"
+                     "bg-[#d89c65] dark:bg-meta-4"
                    }`}
                   onClick={(e) => {
                     e.preventDefault();
@@ -138,7 +138,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
   return (
     <aside
       ref={sidebar}
-      className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-theme duration-300 
+      className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-gray-800 duration-300 
         ease-linear dark:bg-boxdark lg:static lg:translate-x-0 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
@@ -146,10 +146,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: any) => {
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
         <NavLink to="/">
-          <img src={Logo} alt="Logo" />
+          <img src={Logo} alt="Logo" className="size-14 w-18 ml-4"/>
         </NavLink>
-        <span className="w-full font-bold text-bodydark1 text-xl">
-          Question Pool
+        <span className="w-full font-bold text-bodydark1 text-xl ml-8">
+          EMAT
         </span>
 
         <button

@@ -70,6 +70,58 @@ export const TabSet = () => {
   });
 
   const handleSubmit = () => {
+    let score = 0
+
+    function updateScore(response: any) {
+      if (response === 'Yes') return 1;
+      if (response === 'No') return -1;
+      return 0;
+    }
+
+    function updateScoreInverted(response: any) {
+      if (response === 'Yes') return -1;
+      if (response === 'No') return 1;
+      return 0;
+    }
+    
+    score += updateScore(functional.personal[1]);
+    score += updateScore(functional.personal[2]);
+    score += updateScore(functional.personal[3]);
+    
+    score += updateScore(functional.social[1]);
+    score += updateScore(functional.social[2]);
+    score += updateScore(functional.social[3]);
+    
+    score += updateScore(functional.hobbies[1]);
+    score += updateScore(functional.hobbies[2]);
+    
+    score += updateScore(functional.activities[1]);
+    score += updateScore(functional.activities[2]);
+    score += updateScore(functional.activities[3]);
+
+    score += updateScoreInverted(behaviorals[1]);
+    score += updateScoreInverted(behaviorals[2]);
+    score += updateScoreInverted(behaviorals[3]);
+    score += updateScoreInverted(behaviorals[4]);
+    score += updateScoreInverted(behaviorals[5]);
+    score += updateScoreInverted(behaviorals[6]);
+    score += updateScoreInverted(behaviorals[7]);
+    score += updateScoreInverted(behaviorals[8]);
+    score += updateScoreInverted(behaviorals[9]);
+    score += updateScoreInverted(behaviorals[10]);
+ 
+    score += updateScoreInverted(cognition[1]);
+    score += updateScoreInverted(cognition[2]);
+    score += updateScoreInverted(cognition[3]);
+    score += updateScoreInverted(cognition[4]);
+    score += updateScoreInverted(cognition[5]);
+    score += updateScoreInverted(cognition[6]);
+    score += updateScoreInverted(cognition[7]);
+    score += updateScoreInverted(cognition[8]);
+    score += updateScoreInverted(cognition[9]);
+    score += updateScoreInverted(cognition[10]);
+    
+
     const formaData = {
       demographic: demographic,
       social: social,
@@ -77,16 +129,20 @@ export const TabSet = () => {
       behaviorals: behaviorals,
       cognition: cognition,
       functional,
+      score
     };
+    console.log("score", score)
     console.log(formaData, "formaData");
   };
 
   const saveDemographic = (data: any) => {
+    setDemographic(data)
     console.log(data, "saveDemographic");
     setActive((prev) => prev + 1);
   };
 
   const saveSocial = (data: any) => {
+    setSocial(data)
     console.log(data, "saveSocial");
     if (data?.disibilities !== "No") {
       console.log("early exit");
@@ -101,21 +157,25 @@ export const TabSet = () => {
   };
 
   const saveMedical = (data: any) => {
+    setMedical(data)
     console.log(data, "saveMedical");
     setActive((prev) => prev + 1);
   };
 
   const saveBehavioral = (data: any) => {
+    setBehaviorals(data)
     console.log(data, "saveBehavioral");
     setActive((prev) => prev + 1);
   };
 
   const saveCognitions = (data: any) => {
+    setCognition(data)
     console.log(data, "saveCognitions summary page");
     handleSubmit();
   };
 
   const saveFunctional = (data: any) => {
+    setFunctional(data)
     console.log(data, "saveFunctional");
     setActive((prev) => prev + 1);
   };

@@ -3,23 +3,16 @@ import { icons } from "../assets/icons/IconLists";
 //for sidebar
 export const MenuList = [
   {
-    name: "DashBoard",
+    name: "Dashboard",
     type: "item",
-    path: "/dashBoard",
+    path: "/dashboard",
     icon: icons.main,
   },
   {
-    name: "Masters",
-    type: "group",
+    name: "Appointments",
+    type: "item",
+    path: "/appointments",
     icon: icons.main,
-    children: [
-      {
-        name: "User List",
-        type: "item",
-        path: "/userList",
-        icon: icons.sub,
-      }
-    ],
   },
   {
     name: "Assesments",
