@@ -9,16 +9,24 @@ const createPatientEntry = async (req: Request, res: Response) => {
   try {
     let newPatientEntry = req.body;
 
-    await AppDataSource.createQueryBuilder()
-      .insert()
-      .into(Patient)
-      .values(newPatientEntry)
-      .execute();
+    // await AppDataSource.createQueryBuilder()
+    //   .insert()
+    //   .into(Patient)
+    //   .values(newPatientEntry)
+    //   .execute();
+
+      const patientRepository = AppDataSource.getRepository(Patient);
+      await patientRepository.insert(newPatientEntry);
 
     res.status(201).json({ message: "Patient Entry Created" });
   } catch (error) {
     console.error("Error creating patient entry:", error);
-    res.status(500).json({ error: "Failed to create patient entry" });
+    // res.status(500).json({ error: "Failed to create patient entry"});
+    res.status(500).json({
+      error: "Failed to create patient entry",
+      details: error instanceof Error ? error.message : String(error),
+      status : 401
+    });
   }
 };
 
