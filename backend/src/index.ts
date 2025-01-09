@@ -6,12 +6,13 @@ import helmet from 'helmet';
 
 import { initializeDB } from './utils/dbConnection';
 import patient from './routes/patient'
+import ai from './routes/ai'
 
 dotenv.config();
 
 // Initialize the app
 const app: Application = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3003;
 
 // DB Connection
 initializeDB().then(() => {
@@ -34,6 +35,7 @@ app.get('/health', (req: Request, res: Response) => {
   res.status(200).json({ message: 'Health Check Ok!' });
 });
 app.use("/api", patient);
+app.use("/api", ai);
 
 
 // Error Handling Middleware

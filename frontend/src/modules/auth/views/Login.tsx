@@ -21,8 +21,10 @@ const Login = () => {
     console.log(patientID, password);
 
     if (patientID === "AD132") {
+      localStorage.setItem('user', 'patient')
       navigate("/assesments");
     } else {
+      localStorage.setItem('user', 'physician')
       navigate("/dashboard");
     }
   };
