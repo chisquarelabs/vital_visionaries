@@ -1,90 +1,98 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import "../style.css";
 
-export default function SummaryPage() {
+export default function SummaryPage({ scoreDetails }: any) {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        maxHeight: '100vh',
-        backgroundColor: '#fff',
-        padding: 2,
-      }}
+    <table
+      className="table-container"
+      style={{ width: "100%", marginTop: "16px", borderCollapse: "collapse" }}
     >
-      <Card sx={{ maxWidth: 1000, width: '100%', padding: 2, backgroundColor: '#fff', boxShadow: 3 }}>
-        <CardContent>
-          <Typography variant="h4" component="div" gutterBottom sx={{ color: '#0a1d40', textAlign: 'center' }}>
-            Summary Page
-          </Typography>
-
-          {/* Medical - Flags */}
-          <Card sx={{ marginBottom: 2, backgroundColor: '#fff', color: '#0a1d40' }}>
-            <CardContent>
-              <Typography variant="h6">Medical - Flags</Typography>
-              <ul>
-                <Typography component="li">Flag 1</Typography>
-                <Typography component="li">Flag 2</Typography>
-                <Typography component="li">Flag 3</Typography>
-              </ul>
-            </CardContent>
-          </Card>
-
-          {/* Functional - Scores and Flags */}
-          <Card sx={{ marginBottom: 2, backgroundColor: '#fff', color: '#0a1d40' }}>
-            <CardContent>
-              <Typography variant="h6">Functional - Scores and Flags</Typography>
-
-              <Box>
-                <Typography>Personal: Score 85, Flags: None</Typography>
-                <Typography>Social: Score 78, Flags: 1</Typography>
-                <Typography>Hobbies and Interests: Score 90, Flags: None</Typography>
-                <Typography>Activities and Engagement: Score 88, Flags: 2</Typography>
-              </Box>
-            </CardContent>
-          </Card>
-
-          {/* Behavioral - Scores and Flags */}
-          <Card sx={{ marginBottom: 2, backgroundColor: '#fff', color: '#0a1d40' }}>
-            <CardContent>
-              <Typography variant="h6">Behavioral - Scores and Flags</Typography>
-              <Typography>Score: 70</Typography>
-              <Typography>Flags: 3</Typography>
-            </CardContent>
-          </Card>
-
-          {/* Cognition - Scores */}
-          <Card sx={{ marginBottom: 2, backgroundColor: '#fff', color: '#0a1d40' }}>
-            <CardContent>
-              <Typography variant="h6">Cognition - Scores</Typography>
-              <Typography>Score: 95</Typography>
-            </CardContent>
-          </Card>
-
-          {/* DE Team Markers / Starred Questions / Flags */}
-          <Card sx={{ backgroundColor: '#fff', color: '#0a1d40' }}>
-            <CardContent>
-              <Typography variant="h6">DE Team Markers / Starred Questions / Flags</Typography>
-              <ul>
-                <Typography component="li">Marker 1: Highlighted</Typography>
-                <Typography component="li">Starred Question 1: Response flagged</Typography>
-                <Typography component="li">Flag 1: Requires follow-up</Typography>
-              </ul>
-            </CardContent>
-          </Card>
-        </CardContent>
-        <CardActions sx={{ justifyContent: 'center' }}>
-          <Button variant="contained" sx={{ backgroundColor: '#0a1d40', color: '#ffffff' }}>
-            Learn More
-          </Button>
-        </CardActions>
-      </Card>
-    </Box>
+      <thead>
+        <tr>
+          <th
+            className=" bg-gray-50 h-10"
+            colSpan={6}
+            style={{ textAlign: "center" }}
+          >
+            Summary
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Section</th>
+          <th>Sub Section</th>
+          <th>Score</th>
+          <th className="text-center" colSpan={3}>
+            Flags
+          </th>
+        </tr>
+        <tr>
+          <th>Medical History</th>
+          <th> </th>
+          <th></th>
+          <td>Cancer</td>
+          <td>Stroke</td>
+          <td>Cardiac Problems</td>
+        </tr>
+        <tr>
+          <th>Founding Assessments</th>
+          <td>
+            <table  style={{ width: "100%" }}>
+              <tbody>
+                <tr>
+                  <th style={{ border: "none" }}>Personal Wellbeing</th>
+                </tr>
+                <tr>
+                  <th style={{ border: "none" }}>Social Well- Being</th>
+                </tr>
+                <tr>
+                  <th style={{ border: "none" }}>Hobbies and Interests</th>
+                </tr>
+                <tr>
+                  <th style={{ border: "none" }}>Outdoor activities and engagement</th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td>
+            <table style={{ width: "100%" }}>
+              <tbody>
+                <tr>
+                  <td style={{ border: "none" }}>{scoreDetails?.personalScore || 0} Out of 3</td>
+                </tr>
+                <tr>
+                  <td style={{ border: "none" }}>{scoreDetails?.socialScore || 0} Out of 3</td>
+                </tr>
+                <tr>
+                  <td style={{ border: "none" }}>{scoreDetails?.hobbiesScore || 0} Out of 2</td>
+                </tr>
+                <tr>
+                  <td style={{ border: "none" }}>{scoreDetails?.activityScore || 0} Out of 3</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>Behavioural Assessments</th>
+          <td></td>
+          <td>{scoreDetails?.behavioralsScore || 0} Out of 10</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>Cognition Assessments</th>
+          <td></td>
+          <td>{scoreDetails?.cognitionScore || 0} Out of 10</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
   );
 }

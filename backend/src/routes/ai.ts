@@ -4,6 +4,6 @@ import { getSummary } from "../controllers/aiController";
 
 const router = express.Router();
 
-router.post("/summary", getSummary);
+router.get("/summary", getSummary);
 
 export default router;

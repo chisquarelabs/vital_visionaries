@@ -1,0 +1,13 @@
+
+
+.table-container th,
+.table-container td {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+  font-family: "Arial", sans-serif;
+}
+
+.table-container th {
+  font-weight: bold; /* Make header text bold */
+}

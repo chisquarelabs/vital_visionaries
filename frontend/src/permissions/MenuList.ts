@@ -20,4 +20,10 @@ export const MenuList = [
     path: "/assesments",
     icon: icons.main,
   },
+  {
+    name: "AI Summary",
+    type: "item",
+    path: "/aisummary",
+    icon: icons.main,
+  },
 ];
