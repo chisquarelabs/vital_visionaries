@@ -26,26 +26,26 @@ export class Patient {
   @Column({ nullable: true })
   disabilities: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  smoker: boolean;
+  @Column({ nullable: true })
+  smoker: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  alcoholic: boolean;
+  @Column({ nullable: true })
+  alcoholic: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  hospitalization: boolean;
+  @Column({ nullable: true })
+  hospitalization: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  diabetic: boolean;
+  @Column({ nullable: true })
+  diabetic: string;
 
   @Column({ nullable: true })
   thyroid: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  cancer: boolean;
+  @Column({ nullable: true })
+  cancer: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  stroke: boolean;
+  @Column({ nullable: true })
+  stroke: string;
 
   @Column({ nullable: true })
   cardiac: string;
@@ -53,8 +53,8 @@ export class Patient {
   @Column({ nullable: true })
   head_injuries: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  seizure: boolean;
+  @Column({ nullable: true })
+  seizure: string;
 
   @Column({ nullable: true })
   renals: string;
@@ -62,98 +62,98 @@ export class Patient {
   @Column({ nullable: true })
   liver: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  cloth_assistance: boolean;
+  @Column({ nullable: true })
+  cloth_assistance: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  two_meals: boolean;
+  @Column({ nullable: true })
+  two_meals: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  neat_bedroom: boolean;
+  @Column({ nullable: true })
+  neat_bedroom: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  support_system: boolean;
+  @Column({ nullable: true })
+  support_system: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  social_activities: boolean;
+  @Column({ nullable: true })
+  social_activities: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  converse: boolean;
+  @Column({ nullable: true })
+  converse: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  hobbies: boolean;
+  @Column({ nullable: true })
+  hobbies: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  hobby_engagement: boolean;
+  @Column({ nullable: true })
+  hobby_engagement: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  public_transport: boolean;
+  @Column({ nullable: true })
+  public_transport: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  shopping_alone: boolean;
+  @Column({ nullable: true })
+  shopping_alone: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  sports: boolean;
+  @Column({ nullable: true })
+  sports: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  suicide_attempt: boolean;
+  @Column({ nullable: true })
+  suicide_attempt: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  suicidal_tendencies: boolean;
+  @Column({ nullable: true })
+  suicidal_tendencies: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  wandering: boolean;
+  @Column({ nullable: true })
+  wandering: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  scammed: boolean;
+  @Column({ nullable: true })
+  scammed: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  sleep_pattern: boolean;
+  @Column({ nullable: true })
+  sleep_pattern: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  drag_feet: boolean;
+  @Column({ nullable: true })
+  drag_feet: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  sleep_disturbed: boolean;
+  @Column({ nullable: true })
+  sleep_disturbed: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  depression: boolean;
+  @Column({ nullable: true })
+  depression: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  anxious: boolean;
+  @Column({ nullable: true })
+  anxious: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  irritated: boolean;
+  @Column({ nullable: true })
+  irritated: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  memory_problems: boolean;
+  @Column({ nullable: true })
+  memory_problems: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  short_term_memory: boolean;
+  @Column({ nullable: true })
+  short_term_memory: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  long_term_memory: boolean;
+  @Column({ nullable: true })
+  long_term_memory: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  memory_progression: boolean;
+  @Column({ nullable: true })
+  memory_progression: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  memory_aids: boolean;
+  @Column({ nullable: true })
+  memory_aids: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  focusing_difficulty: boolean;
+  @Column({ nullable: true })
+  focusing_difficulty: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  speech_difficulty: boolean;
+  @Column({ nullable: true })
+  speech_difficulty: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  expressing_difficulty: boolean;
+  @Column({ nullable: true })
+  expressing_difficulty: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  word_finding: boolean;
+  @Column({ nullable: true })
+  word_finding: string;
 
-  @Column({ type: 'boolean', nullable: true })
-  repeating: boolean;
+  @Column({ nullable: true })
+  repeating: string;
 
   @CreateDateColumn()
   created_at: Date;
