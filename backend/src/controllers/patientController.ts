@@ -30,4 +30,18 @@ const createPatientEntry = async (req: Request, res: Response) => {
   }
 };
 
-export { createPatientEntry };
+const getAllPatients = async (req: Request, res: Response) => {
+  try {
+    const patientRepository = AppDataSource.getRepository(Patient);
+    const patients = await patientRepository.find(); 
+    res.status(200).json(patients);  
+  } catch (error) {
+    console.error("Error fetching patients:", error);
+    res.status(500).json({
+      error: "Failed to fetch patients",
+      details: error instanceof Error ? error.message : String(error),
+    });
+  }
+};
+
+export { createPatientEntry,getAllPatients };
