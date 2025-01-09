@@ -24,7 +24,7 @@ export default function AiSummary() {
   };
 
   return (
-    <div className="flex flex-col items-center mt-24">
+    <div className="flex flex-col items-center p-16">
       <div className="mb-4">
         <input
           type="text"
