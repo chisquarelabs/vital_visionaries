@@ -155,6 +155,12 @@ export class Patient {
   @Column({ nullable: true })
   repeating: string;
 
+  @Column({ nullable: true })
+  score : number;
+
+  @Column({ nullable: true })
+  early_exit : string;
+
   @CreateDateColumn()
   created_at: Date;
 
