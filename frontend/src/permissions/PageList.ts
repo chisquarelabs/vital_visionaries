@@ -48,4 +48,10 @@ export const pageList = [
     viewName: "EndPage",
     path: "/done",
   },
+  {
+    name: "AI Summary",
+    moduleName: "aiSummary",
+    viewName: "aiSummary",
+    path: "/aisummary",
+  },
 ];
