@@ -9,7 +9,7 @@ import { Cognitive } from "./Cognitive";
 import { Functional } from "./Functional";
 import "../style/style.css";
 
-export const TabSet = () => {
+export const TabSet = ({ handleSave }: any) => {
   const [active, setActive] = useState(0);
   const navigate = useNavigate();
 
@@ -71,15 +71,10 @@ export const TabSet = () => {
   };
 
   const [demographic, setDemographic] = useState(initialDemographic);
-
   const [social, setSocial] = useState(initiaSocial);
-
   const [medical, setMedical] = useState(initialMedical);
-
   const [behaviorals, setBehaviorals] = useState(initialBehaviourals);
-
   const [cognition, setCognition] = useState(initialCognition);
-
   const [functional, setFunctional] = useState(initialFUnctional);
 
   const initializeData = () => {
@@ -106,6 +101,13 @@ export const TabSet = () => {
     }
 
     let score = 0;
+    let personalScore = 0;
+    let socialScore = 0;
+    let hobbiesScore = 0;
+    let activityScore = 0;
+    let behavioralsScore = 0;
+    let cognitionScore = 0;
+
     let formaData = {
       demographic: demographic,
       social: social,
@@ -119,53 +121,83 @@ export const TabSet = () => {
 
     if (earlyExit != null || earlyExit !== "") {
       formaData = { ...formaData, early_exit: earlyExit };
-      //   api call
+      const response = handleSave(formaData);
+      if (response === "success") {
+        initializeData();
+        setActive(0);
+        navigate("/done");
+      }
     } else {
-      score += updateScore(functional.personal["cloth_assistance"]);
-      score += updateScore(functional.personal["social_activities"]);
-      score += updateScore(functional.personal["converse"]);
+      personalScore += updateScore(functional.personal["cloth_assistance"]);
+      personalScore += updateScore(functional.personal["social_activities"]);
+      personalScore += updateScore(functional.personal["converse"]);
 
-      score += updateScore(functional.social["support_system"]);
-      score += updateScore(functional.social["two_meals"]);
-      score += updateScore(functional.social["neat_bedroom"]);
+      socialScore += updateScore(functional.social["support_system"]);
+      socialScore += updateScore(functional.social["two_meals"]);
+      socialScore += updateScore(functional.social["neat_bedroom"]);
 
-      score += updateScore(functional.hobbies["hobbies"]);
-      score += updateScore(functional.hobbies["hobby_engagement"]);
+      hobbiesScore += updateScore(functional.hobbies["hobbies"]);
+      hobbiesScore += updateScore(functional.hobbies["hobby_engagement"]);
 
-      score += updateScore(functional.activities["public_transport"]);
-      score += updateScore(functional.activities["shopping_alone"]);
-      score += updateScore(functional.activities["sports"]);
+      activityScore += updateScore(functional.activities["public_transport"]);
+      activityScore += updateScore(functional.activities["shopping_alone"]);
+      activityScore += updateScore(functional.activities["sports"]);
 
-      score += updateScoreInverted(behaviorals.suicide_attempt);
-      score += updateScoreInverted(behaviorals.suicidal_tendencies);
-      score += updateScoreInverted(behaviorals.wandering);
-      score += updateScoreInverted(behaviorals.scammed);
-      score += updateScoreInverted(behaviorals.sleep_pattern);
-      score += updateScoreInverted(behaviorals.drag_feet);
-      score += updateScoreInverted(behaviorals.sleep_disturbed);
-      score += updateScoreInverted(behaviorals.depression);
-      score += updateScoreInverted(behaviorals.anxious);
-      score += updateScoreInverted(behaviorals.irritated);
+      behavioralsScore += updateScoreInverted(behaviorals.suicide_attempt);
+      behavioralsScore += updateScoreInverted(behaviorals.suicidal_tendencies);
+      behavioralsScore += updateScoreInverted(behaviorals.wandering);
+      behavioralsScore += updateScoreInverted(behaviorals.scammed);
+      behavioralsScore += updateScoreInverted(behaviorals.sleep_pattern);
+      behavioralsScore += updateScoreInverted(behaviorals.drag_feet);
+      behavioralsScore += updateScoreInverted(behaviorals.sleep_disturbed);
+      behavioralsScore += updateScoreInverted(behaviorals.depression);
+      behavioralsScore += updateScoreInverted(behaviorals.anxious);
+      behavioralsScore += updateScoreInverted(behaviorals.irritated);
 
-      score += updateScoreInverted(cognition.memory_problems);
-      score += updateScoreInverted(cognition.short_term_memory);
-      score += updateScoreInverted(cognition.long_term_memory);
-      score += updateScoreInverted(cognition.memory_progression);
-      score += updateScoreInverted(cognition.memory_aids);
-      score += updateScoreInverted(cognition.focusing_difficulty);
-      score += updateScoreInverted(cognition.speech_difficulty);
-      score += updateScoreInverted(cognition.expressing_difficulty);
-      score += updateScoreInverted(cognition.word_finding);
-      score += updateScoreInverted(cognition.repeating);
-      formaData = { ...formaData, score: score };
+      cognitionScore += updateScoreInverted(cognition.memory_problems);
+      cognitionScore += updateScoreInverted(cognition.short_term_memory);
+      cognitionScore += updateScoreInverted(cognition.long_term_memory);
+      cognitionScore += updateScoreInverted(cognition.memory_progression);
+      cognitionScore += updateScoreInverted(cognition.memory_aids);
+      cognitionScore += updateScoreInverted(cognition.focusing_difficulty);
+      cognitionScore += updateScoreInverted(cognition.speech_difficulty);
+      cognitionScore += updateScoreInverted(cognition.expressing_difficulty);
+      cognitionScore += updateScoreInverted(cognition.word_finding);
+      cognitionScore += updateScoreInverted(cognition.repeating);
+
+      const totalScore =
+        score +
+        cognitionScore +
+        behavioralsScore +
+        activityScore +
+        hobbiesScore +
+        socialScore +
+        personalScore;
+
+      formaData = {
+        ...formaData,
+        score: totalScore,
+      };
+
+      const scoreDetails = {
+        cognitionScore: cognitionScore,
+        behavioralsScore: behavioralsScore,
+        activityScore: activityScore,
+        hobbiesScore: hobbiesScore,
+        socialScore: socialScore,
+        personalScore: personalScore,
+        totalScore: totalScore,
+      };
+      localStorage.setItem("scoreDetails", JSON.stringify(scoreDetails));
+
       //   api call
+      const response = handleSave(formaData);
+      if (response === "success") {
+        initializeData();
+        setActive(0);
+        navigate("/done");
+      }
     }
-
-    console.log("score", score);
-    console.log(formaData, "formaData");
-    initializeData();
-    setActive(0);
-    navigate("/done");
   };
 
   const saveDemographic = (data: any) => {
@@ -208,7 +240,6 @@ export const TabSet = () => {
 
   const saveCognitions = (data: any) => {
     setCognition(data);
-    console.log(data, "saveCognitions summary page");
     handleSubmit("");
   };
 

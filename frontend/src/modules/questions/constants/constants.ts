@@ -1,0 +1,1 @@
+export const AssessmentUrl="http://localhost:3000/api/patient";
