@@ -3,7 +3,7 @@ import { Card, CardContent, Typography, Box } from "@mui/material";
 import { motion } from "framer-motion";
 import SummaryPage from "../../summary/views/summaryPage";
 
-const ThankYouPage = ({ summary }: any) => {
+const ThankYouPage = () => {
   const [scoreDetails, setScoreDetails] = useState(null);
 
   useEffect(() => {
@@ -41,9 +41,11 @@ const ThankYouPage = ({ summary }: any) => {
             </Typography>
           </Box>
         )}
-        <Box>
-          <SummaryPage />
-        </Box>
+        {scoreDetails != null && (
+          <Box>
+            <SummaryPage />
+          </Box>
+        )}
       </CardContent>
     </Card>
   );
