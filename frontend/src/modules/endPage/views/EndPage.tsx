@@ -1,10 +1,10 @@
-import { Button, Card, CardContent, Typography, Box } from "@mui/material";
+import {  Card, CardContent, Typography, Box } from "@mui/material";
 import { motion } from "framer-motion";
 
 const ThankYouPage = ({ summary }: any) => {
   return (
     <Box
-      className="mt-54 w-full flex flex-col items-center justify-center"
+      className=" w-full flex flex-col items-center justify-center"
       component={motion.div}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -17,7 +17,7 @@ const ThankYouPage = ({ summary }: any) => {
             component="h1"
             className="text-center text-gray-800 font-bold"
           >
-            Thank You for Taking the Test!
+            Thank you for taking the assessment!
           </Typography>
           <Typography
             variant="subtitle1"
@@ -35,7 +35,7 @@ const ThankYouPage = ({ summary }: any) => {
           >
             {summary && summary.length > 0 ? (
               <ul className="list-disc list-inside">
-                {summary.map((item, index) => (
+                {summary.map((item: any, index: number) => (
                   <Typography
                     key={index}
                     component="li"
@@ -53,15 +53,13 @@ const ThankYouPage = ({ summary }: any) => {
             )}
           </Box>
 
-          <button
-            className="relative inline-block px-4 py-2 font-medium group mt-4"
-          >
-            <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+          {/* <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
             <span className="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
             <span className="relative text-black group-hover:text-white">
-            Finish
+              Finish
             </span>
           </button>
+          <button className="relative inline-block px-4 py-2 font-medium group mt-4"> */}
         </CardContent>
       </Card>
     </Box>
